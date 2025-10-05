@@ -1,6 +1,6 @@
 const os = require('os');
 const { getMemoryUsage, getSystemMemory, getCPUInfo, formatUptime } = require('../utils/systemUtils');
-const { getTotalHits, getHealthHits, incrementHealthHits, getServerStartTime } = require('../middleware/metrics');
+const { getTotalHits, getHealthHits, getApiHits, incrementHealthHits, getServerStartTime } = require('../middleware/metrics');
 const { PORT, NODE_ENV } = require('../config/config');
 
 const getHealth = (req, res) => {
@@ -34,9 +34,10 @@ const getHealth = (req, res) => {
     },
     cpu: getCPUInfo(),
     traffic: {
-      totalHits: getTotalHits(),
+      totalHits: getTotalHits(), // Now excludes health endpoint hits
+      apiHits: getApiHits(), // API hits excluding health checks
       healthEndpointHits: getHealthHits(),
-      requestsPerSecond: Math.round((getTotalHits() / uptimeSeconds) * 100) / 100
+      requestsPerSecond: uptimeSeconds > 0 ? Math.round((getTotalHits() / uptimeSeconds) * 100) / 100 : 0
     }
   };
 
