@@ -1,7 +1,13 @@
 const express = require('express');
-const { testApiKey, generateImage, downloadVideo } = require('../controllers/toolsController');
+const {
+  getChatHistory,
+  testApiKey
+} = require('../controllers/toolsController');
 const { apiKeyAuth } = require('../middleware/auth');
 const { apiLimiter } = require('../middleware/rateLimiter');
+
+// Import specific tool routes
+const geminiRoutes = require('./gemini');
 
 const router = express.Router();
 
@@ -9,19 +15,18 @@ const router = express.Router();
 router.use(apiKeyAuth);
 router.use(apiLimiter);
 
+// General tools endpoints
 // @route   GET /api/tools/test
 // @desc    Test API key authentication
 // @access  API Key Required
 router.get('/test', testApiKey);
 
-// @route   POST /api/tools/generate-image
-// @desc    Generate image (placeholder)
+// @route   GET /api/tools/chat/history/:conversationId
+// @desc    Get chat conversation history
 // @access  API Key Required
-router.post('/generate-image', generateImage);
+router.get('/chat/history/:conversationId', getChatHistory);
 
-// @route   POST /api/tools/download-video
-// @desc    Download video (placeholder)
-// @access  API Key Required
-router.post('/download-video', downloadVideo);
+// Use specific tool routes
+router.use('/', geminiRoutes);
 
 module.exports = router;
