@@ -14,18 +14,13 @@ connectDB();
 // Setup middleware
 setupMiddleware(app);
 
-// Main dashboard route
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
-
 // Setup API routes
 app.use('/api', routes);
 
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`🌐 Dashboard: http://localhost:${PORT}/`);
+  console.log(`🌐 API Root: http://localhost:${PORT}/`);
   console.log(`📊 Health API: http://localhost:${PORT}/api/health`);
   console.log(`🔐 Auth API: http://localhost:${PORT}/api/auth/`);
   console.log(`📊 Dashboard API: http://localhost:${PORT}/api/dashboard/`);
