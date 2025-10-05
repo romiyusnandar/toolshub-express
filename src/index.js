@@ -1,21 +1,20 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
+const { PORT } = require('./config/config');
+const { setupMiddleware } = require('./middleware');
+const routes = require('./routes');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-app.use(cors());
-app.use(express.json());
+// Setup middleware
+setupMiddleware(app);
 
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', time: new Date().toISOString() });
-});
+// Setup routes
+app.use('/api', routes);
 
-app.get('/', (req, res) => {
-  res.send('Welcome to Toolshub API');
-});
-
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`📊 Health endpoint: http://localhost:${PORT}/api/health`);
+  console.log(`🏠 Welcome endpoint: http://localhost:${PORT}/api/`);
 });
