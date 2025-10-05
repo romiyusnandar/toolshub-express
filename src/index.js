@@ -1,10 +1,14 @@
 require('dotenv').config();
 const express = require('express');
+const connectDB = require('./config/database');
 const { PORT } = require('./config/config');
 const { setupMiddleware } = require('./middleware');
 const routes = require('./routes');
 
 const app = express();
+
+// Connect to MongoDB
+connectDB();
 
 // Setup middleware
 setupMiddleware(app);
