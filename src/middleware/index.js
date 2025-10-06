@@ -3,6 +3,9 @@ const cors = require('cors');
 const { hitCounterMiddleware } = require('../middleware/metrics');
 
 const setupMiddleware = (app) => {
+  // Trust proxy settings for deployment behind reverse proxy (Vercel, Netlify, etc.)
+  app.set('trust proxy', true);
+
   // CORS configuration - allow access from anywhere
   const corsOptions = {
     origin: '*', // Allow all origins

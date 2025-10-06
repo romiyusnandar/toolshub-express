@@ -10,6 +10,7 @@ const authLimiter = rateLimit({
   },
   standardHeaders: true,
   legacyHeaders: false,
+  trustProxy: true, // Trust proxy headers
   skip: (req) => {
     // Skip rate limiting in development mode
     return process.env.NODE_ENV === 'development' && process.env.SKIP_RATE_LIMIT === 'true';
@@ -25,7 +26,8 @@ const apiLimiter = rateLimit({
     message: 'Too many requests, please try again later'
   },
   standardHeaders: true,
-  legacyHeaders: false
+  legacyHeaders: false,
+  trustProxy: true // Trust proxy headers
 });
 
 // Rate limiting for OTP requests (stricter)
@@ -37,7 +39,8 @@ const otpLimiter = rateLimit({
     message: 'Too many OTP requests, please try again in an hour'
   },
   standardHeaders: true,
-  legacyHeaders: false
+  legacyHeaders: false,
+  trustProxy: true // Trust proxy headers
 });
 
 module.exports = {
