@@ -4,14 +4,10 @@ const {
   getGeminiModels,
   testGemini
 } = require('../controllers/geminiController');
-const { apiKeyAuth } = require('../middleware/auth');
-const { apiLimiter } = require('../middleware/rateLimiter');
 
 const router = express.Router();
 
-// Apply API key authentication to all gemini routes
-router.use(apiKeyAuth);
-router.use(apiLimiter);
+// Note: API key authentication and rate limiting are applied at the parent router level (/api/tools)
 
 // @route   POST /api/tools/chat-gemini
 // @desc    Chat with Gemini AI (supports text and file uploads)
