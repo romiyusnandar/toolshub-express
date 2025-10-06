@@ -6,43 +6,26 @@ const setupMiddleware = (app) => {
   // Trust proxy settings for deployment behind reverse proxy (Vercel, Netlify, etc.)
   app.set('trust proxy', true);
 
-  // CORS configuration - allow access from anywhere
-  const corsOptions = {
-    origin: '*', // Allow all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-    allowedHeaders: [
-      'Content-Type',
-      'Authorization',
-      'x-api-key',
-      'X-Requested-With',
-      'Accept',
-      'Origin',
-      'Cache-Control',
-      'Pragma'
-    ],
-    exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
-    credentials: false, // Set to false when using origin: '*'
-    preflightContinue: false,
-    optionsSuccessStatus: 204 // Some legacy browsers choke on 204
-  };
-
-  app.use(cors(corsOptions));
-
-  // Handle preflight requests explicitly
-  app.options('*', cors(corsOptions));
-
-  // Additional CORS headers middleware (fallback)
+  // Simple and reliable CORS setup
   app.use((req, res, next) => {
+    // Log for debugging
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`🌐 CORS: ${req.method} ${req.path} from ${req.get('Origin') || 'no origin'}`);
+    }
+
+    // Set CORS headers for all requests
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-api-key, X-Requested-With, Accept, Origin');
-    res.header('Access-Control-Max-Age', '86400'); // 24 hours
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key');
+    res.header('Access-Control-Max-Age', '86400');
 
+    // Handle preflight OPTIONS requests
     if (req.method === 'OPTIONS') {
-      res.sendStatus(204);
-    } else {
-      next();
+      console.log('🔄 Handling OPTIONS preflight request');
+      return res.status(200).end();
     }
+
+    next();
   });
 
   app.use(express.json());
