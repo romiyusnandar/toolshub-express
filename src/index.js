@@ -4,12 +4,18 @@ const path = require('path');
 const connectDB = require('./config/database');
 const { PORT } = require('./config/config');
 const { setupMiddleware } = require('./middleware');
+const { loadDbMetrics } = require('./middleware/metrics');
 const routes = require('./routes');
 
 const app = express();
 
-// Connect to MongoDB
-connectDB();
+// Connect to MongoDB and load metrics
+const initializeApp = async () => {
+  await connectDB();
+  await loadDbMetrics(); // Load database metrics on startup
+};
+
+initializeApp();
 
 // Setup middleware
 setupMiddleware(app);
