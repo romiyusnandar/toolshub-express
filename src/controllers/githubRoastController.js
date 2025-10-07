@@ -18,7 +18,7 @@ const roastGitHubProfile = async (req, res) => {
 
     // Initialize Gemini AI with server's API key
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
 
     // Create roasting prompt with GitHub URLs for AI to fetch directly
     const roastPrompt = createRoastPrompt(username);
