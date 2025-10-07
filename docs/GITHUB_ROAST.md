@@ -1,14 +1,16 @@
-# GitHub Roast Tool API Documentation
+# GitHub Roast Tool API Documentation 🔥
 
 ## Overview
-Tool untuk melakukan "roasting" (sindiran lucu) terhadap profil GitHub menggunakan AI Gemini. AI akan mengakses dan menganalisis profil GitHub secara langsung tanpa perlu fetch data di server, menghasilkan roasting yang menghibur dalam bahasa Indonesia.
+Tool untuk melakukan "roasting" PEDAS terhadap profil GitHub menggunakan AI Gemini. AI akan menganalisis profil GitHub secara langsung dan menghasilkan roasting yang SAVAGE tapi tetap menghibur dalam bahasa Indonesia gaul!
 
 ## Key Features
-- 🤖 **AI-Powered**: Menggunakan Gemini AI untuk analisis real-time
+- 🤖 **AI-Powered**: Menggunakan Gemini AI untuk analisis real-time yang DETAIL
 - 🔗 **Direct Access**: AI mengakses GitHub langsung, tidak ada fetch di server
-- 🇮🇩 **Bahasa Indonesia**: Roasting dalam bahasa yang santai dan gaul
-- 🎯 **Targeted Analysis**: Fokus pada coding habits, repo patterns, dan activity
-- ✨ **Entertainment**: Fun dan menghibur, bukan untuk menyakiti
+- 🔥 **Roasting Pedas**: Style savage tapi tetap fun dan menghibur
+- 😂 **Emote Rich**: Banyak emote ekspresif untuk roasting yang lebih hidup
+- 🇮🇩 **Bahasa Gaul**: Roasting dalam bahasa Indonesia dengan slang developer
+- 🎯 **Savage Analysis**: Analisis mendalam tentang coding habits yang questionable
+- 🤡 **Variatif**: Sapaan pembuka dan style roasting yang beragam
 
 ## Endpoint
 
@@ -39,15 +41,9 @@ X-API-Key: your_toolshub_api_key
   "success": true,
   "data": {
     "username": "romiyusnandar",
-    "roast": "Wah, lihat siapa ini... @romiyusnandar, si mysterious developer yang terlalu cool untuk nulis bio! 🕵️ Sudah join GitHub dari 2020 tapi cuma punya 15 repos public - produktivitas level santai ya bang? 😄\n\nDilihat dari repository-nya, kayaknya lagi seneng banget sama JavaScript dan Python nih. Ada repo 'my-awesome-project' dengan 0 stars - well, awesome is relative ya! 🌟 Tapi yang bikin ketawa, ada repo 'hello-world' yang last update-nya 2 tahun lalu. Classic move! 👨‍💻\n\nFollowers 50, following 200 - rasio social media vibes banget! Kayak lagi hunting mutual atau gimana? 😂 Recent activity-nya mostly PushEvent sama CreateEvent, berarti masih rajin coding lah ya. Lumayan!\n\nTapi jokes aside, keep coding dan tetap semangat explore teknologi baru! Every great developer started with 'hello-world' kok! 🚀💪",
-    "profileData": {
-      "name": "Romi Yusnandar",
-      "bio": null,
-      "publicRepos": 15,
-      "followers": 50,
-      "following": 200,
-      "joinDate": "2020-05-15T08:30:00Z"
-    }
+    "roast": "Anjay, ketemu lagi sama si @romiyusnandar... 🤡 Bio kosong melompong kayak repository yang belum di-push! Mysterious developer banget nih, foto profil doang yang ada, bio mah males nulis 😂 Join dari 2020 tapi repo cuma 15? Produktivitas santai level dewa ya bang! �\n\nWokwokwok lihat tuh repo-reponya... Ada 'my-awesome-project' yang ternyata cuma hello world doang! 🗿 Awesome is subjective memang ya bro... Terus ada 'test-app' sama 'new-project' - creativity naming level 100! � Yang bikin ngakak, repo-repo lama pada di-abandon kayak ex yang udah move on 💸\n\nContribution graph-nya kering kerontang kayak jokes senior developer! � Weekend warrior banget nih, commit cuma pas deadline mendekat... Followers 50 vs following 200 - rasio hunting mutual Instagram ya? 🤓 Pinned repository cuma 2, sisanya malu-malu di hide 🤦‍♂️\n\nTech stack JavaScript sama Python... mainstream banget dah! 😭 Tapi ya lumayan lah, at least konsisten... Commit message-nya pasti 'fix bug', 'update', 'final version' - classic moves detected! ⚰️\n\nEh tapi honestly bro, tetap semangat ngoding ya! Semua developer hebat pasti pernah punya repo 'test123' kok... Keep pushing code, jangan pushing rank doang! 🚀💪",
+    "githubProfile": "https://github.com/romiyusnandar",
+    "note": "AI melakukan analisis langsung dari profil GitHub"
   }
 }
 ```

@@ -4,7 +4,7 @@ Modern Express backend with clean, maintainable architecture.
 
 ## 🚀 Quick Start
 
-1. **Install dependencies**
+1. **Install dependen    "roast": "Anjay, ketemu lagi sama si @romiyusnandar... 🤡 Bio kosong melompong kayak repository yang belum di-push! Mysterious developer banget nih... 😂",ies**
    ```bash
    npm install
    ```
@@ -96,13 +96,14 @@ Chat dengan AI Gemini dengan dukungan multimodal (text + file upload).
 POST /api/tools/github-roast
 ```
 
-Roasting lucu terhadap profil GitHub menggunakan AI.
+Roasting PEDAS terhadap profil GitHub menggunakan AI yang savage tapi menghibur!
 
 **Features:**
-- Analisis profil GitHub comprehensive oleh AI langsung
-- Roasting dalam bahasa Indonesia yang fun
-- AI mengakses repository, activity, dan semua data GitHub
-- Tidak perlu input API key Gemini (menggunakan sistem)
+- 🔥 **Roasting Pedas**: Style savage dengan emote yang ekspresif
+- 🤡 **Analisis Mendalam**: AI menganalisis semua aspek GitHub dengan detail
+- 😂 **Bahasa Gaul**: Roasting dalam bahasa Indonesia dengan slang developer
+- 🎯 **Variatif**: Sapaan pembuka dan style yang beragam setiap request
+- 🗿 **Entertainment**: Roasting yang mengena tapi tetap fun
 
 **Request:**
 ```json
