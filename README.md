@@ -76,6 +76,64 @@ GET /api/
 
 Returns welcome message.
 
+## 🛠️ Available Tools
+
+### 1. Gemini AI Chat
+```http
+POST /api/tools/chat
+```
+
+Chat dengan AI Gemini dengan dukungan multimodal (text + file upload).
+
+**Features:**
+- Text conversation dengan AI
+- Upload dan analisis file (gambar, PDF, dokumen)
+- Conversation history tracking
+- API key authentication
+
+### 2. GitHub Profile Roaster 🔥
+```http
+POST /api/tools/github-roast
+```
+
+Roasting lucu terhadap profil GitHub menggunakan AI.
+
+**Features:**
+- Analisis profil GitHub comprehensive oleh AI langsung
+- Roasting dalam bahasa Indonesia yang fun
+- AI mengakses repository, activity, dan semua data GitHub
+- Tidak perlu input API key Gemini (menggunakan sistem)
+
+**Request:**
+```json
+{
+  "username": "github_username"
+}
+```
+
+**Headers:**
+```
+X-API-Key: your_toolshub_api_key
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "username": "romiyusnandar",
+    "roast": "Wah, ketemu lagi sama si @romiyusnandar... Ini developer yang mysterius banget, bio kosong melompong kayak repository yang belum di-push! �...",
+    "githubProfile": "https://github.com/romiyusnandar",
+    "note": "AI melakukan analisis langsung dari profil GitHub"
+  }
+}
+```
+```
+
+### Tool Documentation
+- [Gemini Chat API](./docs/GEMINI_CHAT.md)
+- [GitHub Roast API](./docs/GITHUB_ROAST.md)
+
 ## 🔧 Development
 
 ### Adding New Routes

@@ -1,8 +1,9 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { GEMINI_API_KEY } = require('../config/config');
 const multer = require('multer');
 
 // Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 // Configure multer for file uploads
 const storage = multer.memoryStorage();

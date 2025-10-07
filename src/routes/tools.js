@@ -3,6 +3,7 @@ const {
   getChatHistory,
   testApiKey
 } = require('../controllers/toolsController');
+const { roastGitHubProfile } = require('../controllers/githubRoastController');
 const { apiKeyAuth } = require('../middleware/auth');
 const { apiLimiter } = require('../middleware/rateLimiter');
 
@@ -25,6 +26,11 @@ router.get('/test', testApiKey);
 // @desc    Get chat conversation history
 // @access  API Key Required
 router.get('/chat/history/:conversationId', getChatHistory);
+
+// @route   POST /api/tools/github-roast
+// @desc    Roast GitHub profile using AI
+// @access  API Key Required
+router.post('/github-roast', roastGitHubProfile);
 
 // Use specific tool routes
 router.use('/', geminiRoutes);

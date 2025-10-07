@@ -3,8 +3,15 @@ const cors = require('cors');
 const { hitCounterMiddleware } = require('../middleware/metrics');
 
 const setupMiddleware = (app) => {
-  // Trust proxy settings for deployment behind reverse proxy (Vercel, Netlify, etc.)
-  app.set('trust proxy', true);
+  // Trust proxy settings - more secure configuration
+  // For Vercel and other cloud platforms
+  if (process.env.NODE_ENV === 'production') {
+    // Trust only first proxy (Vercel, Netlify, etc.)
+    app.set('trust proxy', 1);
+  } else {
+    // Development - no proxy trust needed
+    app.set('trust proxy', false);
+  }
 
   // Simple and reliable CORS setup
   app.use((req, res, next) => {
